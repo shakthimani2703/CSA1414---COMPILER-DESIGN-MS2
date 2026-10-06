@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char str[100];
+    int i;
+
+    printf("Enter a c language statement: ");
+    fgets(str, sizeof(str), stdin);
+
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        if(isalpha(str[i]))
+            printf("%c : Identifier\n", str[i]);
+
+        else if(isdigit(str[i]))
+            printf("%c : Number\n", str[i]);
+
+        else if(str[i] == '+' || str[i] == '-' ||
+                str[i] == '*' || str[i] == '/')
+            printf("%c : Operator\n", str[i]);
+
+        else if(str[i] == ';' || str[i] == ',' ||
+                str[i] == '(' || str[i] == ')')
+            printf("%c : Special Symbol\n", str[i]);
+    }
+
+    return 0;
+}
